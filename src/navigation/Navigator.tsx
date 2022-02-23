@@ -18,4 +18,3 @@ export const Navigator = (props: Props) => {
     </NavigationContainer>
   )
 }
-

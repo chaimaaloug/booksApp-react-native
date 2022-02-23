@@ -7,41 +7,42 @@ import { Routes } from "../navigation/Routes";
 
 const ReadMoreButton = () => {
   const navigation = useNavigation()
+
   function navigateToDetail() {
     navigation.navigate(Routes.BOOK_DETAIL_SCREEN);
   }
   return (
-    
-    <TouchableOpacity onPress={navigateToDetail}>
-    <Text> Read more </Text>
- </TouchableOpacity>
+    <TouchableOpacity  onPress={navigateToDetail}>
+       <Text style={styles.button}> Read more 👉🏻 </Text>
+    </TouchableOpacity>
   )
 }
+
 const renderItem = ({item}) => {
-  
- 
+
   return (
  
     <Card style={styles.card}>
       <Card.Content>
-          <Image style={{
-        width: 290,
-        height: 290,
-        resizeMode: 'contain', borderRadius:7,}} source={{uri : item.book_image}}/>
-        <View>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.txt}>{item.description}</Text>
-          <Text style={styles.txt}>Author : {item.author}</Text>
-          <Text style={styles.txt}>Publisher : {item.publisher}</Text>
-           
-        </View>
+              <Image style={styles.image} source={{uri : item.book_image}}/>
+              <View style={styles.info}>
+               
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.desc}>{item.description}</Text>
+                <Text style={styles.txt}>ISBN : {item.primary_isbn10}</Text>
+                <Text style={styles.txt}>Author : {item.author}</Text>
+                <Text style={styles.txt}>Contributor : {item.contributor}</Text>
+                <Text style={styles.txt}>Publisher : {item.publisher}</Text>  
+              
 
-          <ReadMoreButton />
-       
+              </View>
+
+              <ReadMoreButton  />     
       </Card.Content>
     </Card>
 
-  
+   
+    
   )
   };
 
@@ -60,7 +61,7 @@ export const BooksListScreen = () => {
  console.log(data)
 
   return (
-    <SafeAreaView style={styles.safeContainer}>
+   
       <View style={styles.container}>
         <FlatList
     
@@ -69,35 +70,69 @@ export const BooksListScreen = () => {
           keyExtractor={item => item.title}
         />
       </View>
-    </SafeAreaView>
+  
   );
 };
 
 const styles = StyleSheet.create({
-  safeContainer: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
+ 
+
   container: {
     paddingHorizontal: 20,
-    marginTop: 20,
+    backgroundColor: "white",
   },
-  card: {
-    backgroundColor: "#7B5095",
+
+  image: {
+      width: 278,
+      height: 278,
+      marginBottom: 20,
+      alignSelf: "center",
+      resizeMode: 'contain', 
+      borderRadius:7,
+  },
+
+  info: {
     marginBottom: 20,
+    fontWeight: "bold",
+    
+  },
+
+  card: {
+    backgroundColor: "#FFF4E4",
+    marginTop: 20,
+    marginBottom: 20,
+    borderRadius:17,
+    
+  },
+ 
+  desc:{
+    textAlign: "justify",
+    marginBottom: 10,
   },
 
   txt:{
-    color:"#ffb687",
+    fontStyle: "italic",
     fontWeight: "bold",
+    textAlign: "justify",
+    color:"black",
+     
+ 
   },
 
   title: {
     fontWeight: "bold",
     fontSize: 25,
-    color:"#ffb687",
+    color: "black",
+    textAlign:"center",
+    marginBottom: 18,
+  },
+
+  button: {
+    fontStyle: "italic",
+    fontWeight: "bold",
+    color:"black", 
     
-    marginBottom: 12,
+
   },
 
 });
