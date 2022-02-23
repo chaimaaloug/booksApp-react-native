@@ -2,7 +2,7 @@
 I developed a mobile app that displays science fiction books from The New York Times Books API
 
 ## App Demo
-![alt text](https://github.com/[chaimaaloug]/[booksApp-react-native]/blob/master/bookList.jpg?raw=true)
+![alt text](https://github.com/[chaimaaloug]/[booksApp-react-native]/blob/main/bookList.jpg?raw=true)
 
 ## Get Started
 
