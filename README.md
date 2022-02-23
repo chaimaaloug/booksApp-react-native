@@ -6,4 +6,4 @@ npm start
 
 ## Expo Link
 
-exp://exp.host/@chaimalougsari/movieappreact?release-channel=default
+https://expo.dev/@chaimalougsari/movieappreact?serviceType=classic&distribution=expo-go
