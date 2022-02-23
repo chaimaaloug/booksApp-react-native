@@ -1,25 +1,43 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, Image, StatusBar, FlatList } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Image, StatusBar, FlatList,TouchableOpacity } from "react-native";
 import {Card } from 'react-native-paper';
-import {useMovie} from '../hooks/useMovie'
+import {useBook} from '../hooks/useBook'
+import { Routes } from "../navigation/Routes";
 
-
-const renderItem = ({ item }) => {
+const ReadMoreButton = () => {
+  const navigation = useNavigation()
+  function navigateToDetail() {
+    navigation.navigate(Routes.BOOK_DETAIL_SCREEN);
+  }
+  return (
+    
+    <TouchableOpacity onPress={navigateToDetail}>
+    <Text> Read more </Text>
+ </TouchableOpacity>
+  )
+}
+const renderItem = ({item}) => {
   
+ 
   return (
  
     <Card style={styles.card}>
       <Card.Content>
-          {/* <Image style={{
-        width: 51,
-        height: 51,
-        resizeMode: 'contain',}} source={{ uri: 'https://image.tmdb.org/t/p/w500',}}/> */}
+          <Image style={{
+        width: 290,
+        height: 290,
+        resizeMode: 'contain', borderRadius:7,}} source={{uri : item.book_image}}/>
         <View>
           <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.txt}>{item.overview}</Text>
-          <Text style={styles.txt}>{item.vote_average}</Text>
+          <Text style={styles.txt}>{item.description}</Text>
+          <Text style={styles.txt}>Author : {item.author}</Text>
+          <Text style={styles.txt}>Publisher : {item.publisher}</Text>
+           
         </View>
-    
+
+          <ReadMoreButton />
+       
       </Card.Content>
     </Card>
 
@@ -27,10 +45,10 @@ const renderItem = ({ item }) => {
   )
   };
 
-export const MoviesListScreen = () => {
-  const {isLoading, isError, data}= useMovie()
-   console.log(isLoading)
-   console.log(data)
+export const BooksListScreen = () => {
+
+  const {isLoading, isError, data}= useBook()
+   
   
   if (isLoading) {
    return  <Text>Loading</Text>
@@ -46,7 +64,7 @@ export const MoviesListScreen = () => {
       <View style={styles.container}>
         <FlatList
     
-          data={data.results}
+          data={data.results.books}
           renderItem={renderItem}
           keyExtractor={item => item.title}
         />
