@@ -1,5 +1,5 @@
 # Books App
 
-# Get Started
+## Get Started
 
 npm start
