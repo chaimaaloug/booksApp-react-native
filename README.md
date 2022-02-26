@@ -6,6 +6,7 @@ npm start
 
 
 # App Demo
+<img width="299" alt="mv" src="https://user-images.githubusercontent.com/49941834/155851545-c495f9fb-a95e-4b61-bd6c-0858530bbf33.png">
 
 # Project Link
 https://expo.dev/@chaimalougsari/movieappreact
@@ -15,4 +16,4 @@ https://expo.dev/@chaimalougsari/movieappreact
 
 
 
-<img width="299" alt="mv" src="https://user-images.githubusercontent.com/49941834/155851545-c495f9fb-a95e-4b61-bd6c-0858530bbf33.png">
+
