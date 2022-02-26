@@ -1,14 +1,18 @@
 # Books App
-I developed a mobile app that displays science fiction books from The New York Times Books API
+I developed a mobile app that displays science fiction books from The New York Times Books API.
 
-## App Demo
-![alt text](https://github.com/chaimaaloug/booksApp-react-native/blob/master/bookList.jpg?raw=true)
-![alt text](https://github.com/chaimaaloug/booksApp-react-native/blob/master/details.jpg?raw=true)
-
-## Get Started
-
+# Get Started
 npm start
 
-## Expo Link
 
-https://expo.dev/@chaimalougsari/movieappreact?serviceType=classic&distribution=expo-go
+# App Demo
+
+# Project Link
+https://expo.dev/@chaimalougsari/movieappreact
+
+## 1- install Expo Go App
+## 2- Scan the code below to launch the application
+
+
+
+<img width="299" alt="mv" src="https://user-images.githubusercontent.com/49941834/155851545-c495f9fb-a95e-4b61-bd6c-0858530bbf33.png">
