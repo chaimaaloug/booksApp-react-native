@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, Image, StatusBar, FlatList,TouchableOpacity } from "react-native";
+import {StyleSheet, Text, View, Image, StatusBar, FlatList,TouchableOpacity, SafeAreaView } from "react-native";
 import {Card } from 'react-native-paper';
 import {useBook} from '../hooks/useBook'
 import { Routes } from "../navigation/Routes";
@@ -21,26 +21,26 @@ const ReadMoreButton = () => {
 const renderItem = ({item}) => {
 
   return (
- 
-    <Card style={styles.card}>
-      <Card.Content>
-              <Image style={styles.image} source={{uri : item.book_image}}/>
-              <View style={styles.info}>
-               
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.desc}>{item.description}</Text>
-                <Text style={styles.txt}>ISBN : {item.primary_isbn10}</Text>
-                <Text style={styles.txt}>Author : {item.author}</Text>
-                <Text style={styles.txt}>Contributor : {item.contributor}</Text>
-                <Text style={styles.txt}>Publisher : {item.publisher}</Text>  
-              
+    <SafeAreaView style={styles.background}>
+      <Card style={styles.card}>
+        <Card.Content>
+                <Image style={styles.image} source={{uri : item.book_image}}/>
+                <View style={styles.info}>
+                
+                  <Text style={styles.title}>{item.title}</Text>
+                  <Text style={styles.desc}>{item.description}</Text>
+                  <Text style={styles.txt}>ISBN : {item.primary_isbn10}</Text>
+                  <Text style={styles.txt}>Author : {item.author}</Text>
+                  <Text style={styles.txt}>Contributor : {item.contributor}</Text>
+                  <Text style={styles.txt}>Publisher : {item.publisher}</Text>  
+                
 
-              </View>
+                </View>
 
-              <ReadMoreButton  />     
-      </Card.Content>
-    </Card>
-
+                <ReadMoreButton  />     
+        </Card.Content>
+      </Card>
+    </SafeAreaView>
    
     
   )
@@ -77,14 +77,18 @@ export const BooksListScreen = () => {
 const styles = StyleSheet.create({
  
 
-  container: {
-    paddingHorizontal: 20,
-    backgroundColor: "white",
+  background: {
+    backgroundColor: '#10162F',
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+    padding: 33,
   },
 
   image: {
-      width: 278,
-      height: 278,
+      width: 180,
+      height: 180,
       marginBottom: 20,
       alignSelf: "center",
       resizeMode: 'contain', 
@@ -99,15 +103,13 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: "#FFF4E4",
-    marginTop: 20,
-    marginBottom: 20,
-    borderRadius:17,
-    
+    borderRadius:22, 
   },
  
   desc:{
     textAlign: "justify",
     marginBottom: 10,
+    color:'black',
   },
 
   txt:{
@@ -115,7 +117,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "justify",
     color:"black",
-     
  
   },
 
@@ -131,8 +132,6 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontWeight: "bold",
     color:"black", 
-    
-
   },
 
 });
